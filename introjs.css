@@ -197,7 +197,7 @@
 }
 
 /* Mobile Responsive Styles */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
  
 
   .introjs-tooltip-title {
@@ -221,20 +221,6 @@
 }
 
 /* Even smaller screens */
-@media (max-width: 380px) {
-  .introjs-tooltip {
-    bottom: 10px !important;
-    width: calc(100% - 20px);
-  }
-  
-  .introjs-tooltipbuttons {
-    flex-direction: column-reverse;
-  }
-
-  .introjs-button {
-    width: 100%;
-  }
-}
 
 /* Dark mode and dark backgrounds */
 @media (prefers-color-scheme: dark) {
@@ -280,7 +266,7 @@
 }
 
 /* Helper elements for mobile */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   [data-id="hamburger"],
   [data-id="top-ellipsis"],
   [data-id="play-pause"] {
