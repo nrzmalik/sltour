@@ -305,6 +305,63 @@ class TranslationManager {
   static getTitle(key, language) {
     return this.translations['titles'][key]?.[this.languages[language]] || this.translations['titles'][key]?.en || '';
   }
+
+  static buttonLabels = {
+    en: {
+      nextLabel: 'Next',
+      prevLabel: 'Previous',
+      doneLabel: 'Done'
+    },
+    ar: {
+      nextLabel: 'التالي',
+      prevLabel: 'السابق',
+      doneLabel: 'تم'
+    },
+    ur: {
+      nextLabel: 'اگلا',
+      prevLabel: 'پچھلا',
+      doneLabel: 'مکمل'
+    },
+    nl: {
+      nextLabel: 'Volgende',
+      prevLabel: 'Vorige',
+      doneLabel: 'Klaar'
+    },
+    es: {
+      nextLabel: 'Siguiente',
+      prevLabel: 'Anterior',
+      doneLabel: 'Finalizar'
+    },
+    fr: {
+      nextLabel: 'Suivant',
+      prevLabel: 'Précédent',
+      doneLabel: 'Terminé'
+    },
+    zh: {
+      nextLabel: '下一个',
+      prevLabel: '上一个',
+      doneLabel: '完成'
+    },
+    pt: {
+      nextLabel: 'Próximo',
+      prevLabel: 'Anterior',
+      doneLabel: 'Concluir'
+    },
+    ro: {
+      nextLabel: 'Următorul',
+      prevLabel: 'Anterior',
+      doneLabel: 'Gata'
+    },
+    pl: {
+      nextLabel: 'Dalej',
+      prevLabel: 'Wstecz',
+      doneLabel: 'Gotowe'
+    }
+  };
+
+  static getButtonLabels(language) {
+    return this.buttonLabels[this.languages[language]] || this.buttonLabels.en;
+  }
 }
 
 
@@ -345,12 +402,17 @@ class IntroTour {
   start() {
     observeHelperLayer();
     
+    // Get button labels for the selected language
+    const buttonLabels = TranslationManager.getButtonLabels(this.language);
+    
     introJs().setOptions({
       steps: this.getSteps(),
       showStepNumbers: true,
       showBullets: false,
       tooltipClass: 'customTooltipClass',
-      titleClass: 'customTitleClass'
+      titleClass: 'customTitleClass',
+      // Add button labels
+      ...buttonLabels
     }).start();
   }
 }
